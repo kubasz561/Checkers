@@ -50,6 +50,10 @@ public class CheckersView {
 	{
 		buttonPanel.addNewGameListener(listener);
 	}
+	public void addNetworkListener(ActionListener listener)
+	{
+		buttonPanel.addNetworkListener(listener);
+	}
 	public void setMessageText(String s)
 	{
 		buttonPanel.setMessageText(s);
@@ -218,19 +222,23 @@ class ButtonPanel extends JPanel
 	private JButton newGameButton;
 	private JLabel message;
 	private JButton dontJumpButton;
+
+	private JButton networkButton;
 	
 	public ButtonPanel()
 	{
-		buttonPanel = new JPanel(new GridLayout(1,3));
+		buttonPanel = new JPanel(new GridLayout(1,4));
 		//buttonPanel.setPreferredSize(new Dimension(600,100));
 		//buttonPanel.setBounds(0, 620, 600, 100);
 		newGameButton = new JButton("New Game");
 		message = new JLabel("Welcome!");
+		networkButton = new JButton("Network");
 		dontJumpButton = new JButton("Don't Jump");
 		dontJumpOFF();
 		
 		buttonPanel.add(newGameButton);//, BorderLayout.WEST);
 		buttonPanel.add(message);//, BorderLayout.EAST);
+		buttonPanel.add(networkButton);
 		buttonPanel.add(dontJumpButton);//, BorderLayout.CENTER);
 		add(buttonPanel);
 	}
@@ -249,7 +257,10 @@ class ButtonPanel extends JPanel
 	{
 		dontJumpButton.addActionListener(e);
 	}
-	
+	public void addNetworkListener(ActionListener e)
+	{
+		networkButton.addActionListener(e);
+	}
 	public void dontJumpON()
 	{
 		dontJumpButton.setEnabled(true);

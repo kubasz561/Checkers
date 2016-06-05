@@ -68,5 +68,14 @@ public class CheckersController
 		}
 	}
 	
+	class NetworkListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent  event)
+		{
+			//TODO
+			NetworkController nc = new NetworkController();
+		}
+	}
+	
 }
 
